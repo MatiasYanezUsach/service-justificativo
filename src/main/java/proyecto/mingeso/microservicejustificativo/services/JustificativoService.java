@@ -21,7 +21,7 @@ public class JustificativoService {
         return justificativoNew;
     }
     public Empleado findByRut(String rut_dado){
-        Empleado empleado = restTemplate.getForObject("http://localhost:8090/empleado/byRut/" + rut_dado, Empleado.class);
+        Empleado empleado = restTemplate.getForObject("http://microservice-empleado/empleado/byRut/" + rut_dado, Empleado.class);
         return empleado;
     }
 
