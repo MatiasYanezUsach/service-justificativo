@@ -2,10 +2,7 @@ package proyecto.mingeso.microservicejustificativo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import proyecto.mingeso.microservicejustificativo.entities.JustificativoEntity;
 import proyecto.mingeso.microservicejustificativo.repositories.JustificativoRepository;
 import proyecto.mingeso.microservicejustificativo.services.JustificativoService;
@@ -39,6 +36,16 @@ public class JustificativoController {
         else {
             JustificativoEntity justificado = justificativoService.guardarJustificativo(justificativoFinal);
             return ResponseEntity.ok(justificado);
+        }
+    }
+    @GetMapping("/byRut/{rut_dado}")
+    public ResponseEntity<ArrayList<JustificativoEntity>> obtenerJustificativos(@PathVariable("rut_dado") String rut_dado) {
+        ArrayList<JustificativoEntity> justificativos = justificativoRepository.findByRut(rut_dado);
+        if(justificativos.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            return ResponseEntity.ok(justificativos);
         }
     }
 }
