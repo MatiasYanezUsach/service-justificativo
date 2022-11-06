@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microservice-empleado
+    name: microservice-justificativo
   cloud:
     config:
       enabled: true
