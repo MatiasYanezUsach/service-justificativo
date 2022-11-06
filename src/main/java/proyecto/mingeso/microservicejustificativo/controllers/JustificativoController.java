@@ -37,7 +37,8 @@ public class JustificativoController {
             return ResponseEntity.badRequest().build();
         }
         else {
-            return ResponseEntity.ok(justificativoFinal);
+            JustificativoEntity justificado = justificativoService.guardarJustificativo(justificativoFinal);
+            return ResponseEntity.ok(justificado);
         }
     }
 }
