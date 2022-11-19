@@ -48,4 +48,13 @@ public class JustificativoController {
             return ResponseEntity.ok(justificativos);
         }
     }
+    @GetMapping
+    public ResponseEntity<ArrayList<JustificativoEntity>> getAll() {
+        ArrayList<JustificativoEntity> justificativos = (ArrayList<JustificativoEntity>) justificativoRepository.findAll();
+        if (justificativos.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(justificativos);
+        }
+    }
 }
