@@ -42,7 +42,7 @@ public class JustificativoController {
     public ResponseEntity<ArrayList<JustificativoEntity>> obtenerJustificativos(@PathVariable("rut_dado") String rut_dado) {
         ArrayList<JustificativoEntity> justificativos = justificativoRepository.findByRut(rut_dado);
         if(justificativos.isEmpty()){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(justificativos);
         }
         else{
             return ResponseEntity.ok(justificativos);
@@ -52,7 +52,7 @@ public class JustificativoController {
     public ResponseEntity<ArrayList<JustificativoEntity>> getAll() {
         ArrayList<JustificativoEntity> justificativos = (ArrayList<JustificativoEntity>) justificativoRepository.findAll();
         if (justificativos.isEmpty()) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(justificativos);
         } else {
             return ResponseEntity.ok(justificativos);
         }
