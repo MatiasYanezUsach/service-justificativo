@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/justificativo")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class JustificativoController {
     @Autowired
     JustificativoService justificativoService;
