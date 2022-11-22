@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/justificativo")
-@CrossOrigin(origins = "*")
 public class JustificativoController {
     @Autowired
     JustificativoService justificativoService;
